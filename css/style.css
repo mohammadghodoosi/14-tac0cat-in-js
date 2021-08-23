@@ -1,16 +1,22 @@
 :root{
-  --primary:#1d5888;
+  --primary:#15456d;
   --secondary:#ff993b;
 }
 main>.container {
   padding: 60px 15px 0;
   margin-bottom: 5rem;
 }
-.sticky-nav {
+.sticky-footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100% ;
+  height:60px;
+  background-color: var(--secondary);
+}
+
+.navbar-dark{
+  background-color:var(--secondary)
 }
 
 .fas{
@@ -22,10 +28,26 @@ main>.container {
   background-color:var(--primary)
 }
 
+.footer-code{
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100% ;
+  height:60px;
+  background-color: var(--secondary);
+}
+
+#alertHeading{
+  background-color: rgb(243, 199, 141);
+}
+
 h1,h2,h3,h4,h5,h6{
   color:var(--primary);
   text-transform: uppercase;
   font-family: 'Philosopher', sans-serif;
+}
+span{
+  text-transform: lowercase;
 
 }
 

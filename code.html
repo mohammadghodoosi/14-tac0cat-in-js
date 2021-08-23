@@ -24,11 +24,11 @@
 
 <body class="d-flex flex-column h-100">
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top ">
     <div class="container-fluid">
         <div class="navbar-brand fontP mx-sm-5 d-flex align-items-center">
             <img src="img/infinityW.png" class='mx-1' height='25px' width='35px'>
-           HUNDO</div>
+           tacOcat</div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,16 +39,16 @@
                     <a class="nav-link" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="app.html">app</a>
+                    <a class="nav-link" href="app.html">the App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="code.html">code</a>
+                    <a class="nav-link active" aria-current="page" href="code.html">the Code</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" target='_blank' href="code.html">git repo</a>
+                  <a class="nav-link" target='_blank' href="code.html">Git repo</a>
                  </li>
                 <li class="nav-item">
-                 <a class="nav-link" target='_blank' href="code.html">about</a>
+                 <a class="nav-link" target='_blank' href="code.html">About me</a>
                </li>
                
             </ul>
@@ -58,22 +58,91 @@
 
     <main class="flex-shrink-0">
        <div class="container">
-           <h3 class="border-1 border-dark border-bottom py-3">code</h3>
+           <h3 class="border-1 border-dark border-bottom py-3 text-end">the code of t<span>ac</span>o<span>ca</span>t</h3>
          <div class="row row-cols-1 row-cols-sm-2">
              <div class="col-sm-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        alert('a')
+                        //STEP 1
+                        function getValue(){
+                            document.getElementById('alertHeading').classList.add('invisible')
+                            let input=document.getElementById('input').value 
+                            processValue(input)
+                          }
+                          
+                          function processValue(input){
+                            
+                            //STEP 2
+                            input=input.toLowerCase()
+                            let regex=/[^a-z0-9]/gi;
+                            input=input.replace(regex,'')
+                          
+                            let revString=[]
+                            let objString={}
+
+                            //STEP 3
+                            for (let index = input.length-1; index >= 0; index--) {
+                              revString += input[index];
+                            }
+                          
+                            //STEP 4
+                            if(revString==input){
+                              objString.msg='Well done! You enterd a palindrom...'
+                            }else{
+                              objString.msg='Oops! Your phrase is Not a palindrom...'
+                            }
+                          
+                            objString.reversed=revString
+                            displayValue(objString)
+                          }
+
+                          //STEP 5
+                          function displayValue(objString){
+                            document.getElementById('alertHeading').classList.remove('invisible')
+                            document.getElementById('alertMsg').innerHTML=objString.msg
+                            document.getElementById('alertResult').innerHTML=`the reverse of your phrase:(specific characters had been deleted) class='text-center'> ${objString.reversed}`
+                          }
                     </code>
                 </pre>
              </div>
-             <div class="col-sm-4 order-first order-sm-last align-items-center d-flex">
-                    dfs
+             <div class="col-sm-4 order-first order-sm-last ">
+                    <div class="row">
+                        <div class="col-12 mt-sm-5 mb-sm-5">
+                            <h5 class="border-bottom border-1">
+                                step 1
+                            </h5>
+                            <p>getting phrase from user</p>
+                        </div>
+                        <div class="col-12 mt-sm-5 ">
+                            <h5 class="border-bottom border-1 mt-sm-5">
+                                step 2
+                            </h5>
+                            <p>lowering the case of input with toLowerCase method.<br/>using Regex to ommit special charcters like '?' , '!' , '@' , 'space' , etc from input.</p>
+                        </div>
+                        <div class="col-12  mt-sm-5 mb-sm-5">
+                            <h5 class="border-bottom border-1">
+                                step 3
+                            </h5>
+                            <p>reversing the input with the help of for loop</p>
+                        </div>
+                        <div class="col-12 mb-sm-5 mt-sm-5">
+                            <h5 class="border-bottom border-1">
+                                step 4
+                            </h5>
+                            <p>using conditional statement to check if the input is a palindrom or not and save the data in an object and pass the object to next step.</p>
+                        </div>
+                        <div class="col-12 mt-sm-5 mb-sm-5">
+                            <h5 class="border-bottom border-1">
+                                step 5
+                            </h5>
+                            <p>displaying the object to the UI with the help of DOM manipulation</p>
+                        </div>
+                    </div>
              </div>
          </div>
        </div>
     </main>
-        <footer class="footer mt-auto py-3 bg-dark sticky-footer">
+        <footer class="footer-code mt-auto py-3 sticky-footer">
         <div class="container-fluid text-light">
           <div class="row d-flex align-items-center">
            
